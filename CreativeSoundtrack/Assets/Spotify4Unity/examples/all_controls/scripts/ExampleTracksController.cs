@@ -227,10 +227,33 @@ public class ExampleTracksController : LayoutGroupBase<Track>
 
     public void SortByFeatures(float loudness, float energy, float instrumentalness, float speechiness)
     {
-        foreach(var track in m_tracks)
+        var audioFeatures = new List<SpotifyAPI.Web.Models.AudioFeatures>();
+
+        List<string> tracksIds = m_tracks.Select(x => x.TrackId).ToList();
+        for (var i = 0; i < tracksIds.Count; i += 100)
         {
-            SpotifyService.GetAudioFeatures(track.TrackId);
-            //TODO: How to effectivelly sort by audio features?
+            int howMany = Math.Min(100, tracksIds.Count - i - 1);
+            var sublist = tracksIds.GetRange(i, howMany);
+            var af = SpotifyService.GetSeveralAudioFeatures(sublist).AudioFeatures;
+            audioFeatures.AddRange(af);
         }
+
+        List<Tuple<Track, float>> trackGrades = new List<Tuple<Track, float>>();
+        int count = 0;
+        foreach (var f in audioFeatures)
+        {
+            //smaller grades are better (less different from the parameters chosen)
+            float grade = (Math.Abs(f.Loudness - loudness) +
+                           Math.Abs(f.Energy - energy) +
+                           Math.Abs(f.Instrumentalness - instrumentalness) +
+                           Math.Abs(f.Speechiness - speechiness));
+
+            trackGrades.Add(new Tuple<Track, float>(m_tracks[count], grade));
+            trackGrades.Sort((a, b) => a.Item2.CompareTo(b.Item2));
+            count++;
+        }
+
+        m_tracks = trackGrades.Select(x => x.Item1).ToList();
+        UpdateUI(m_tracks);
     }
 }

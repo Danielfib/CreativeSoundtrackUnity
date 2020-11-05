@@ -914,6 +914,11 @@ namespace Spotify4Unity
             return m_webAPI.GetAudioFeatures(id);
         }
 
+        public SpotifyAPI.Web.Models.SeveralAudioFeatures GetSeveralAudioFeatures(List<string> ids)
+        {
+            return m_webAPI.GetSeveralAudioFeatures(ids);
+        }
+
         /// <summary>
         /// Gets the latest song information
         /// </summary>
