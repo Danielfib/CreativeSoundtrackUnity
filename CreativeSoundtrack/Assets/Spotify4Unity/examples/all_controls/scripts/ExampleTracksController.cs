@@ -225,7 +225,11 @@ public class ExampleTracksController : LayoutGroupBase<Track>
         m_sortByAlbumBtn.transform.Find("Icon").gameObject.SetActive(false);
     }
 
-    public void SortByFeatures(float loudness, float energy, float instrumentalness, float speechiness)
+    public void SortByFeatures(//float loudness, 
+                                float energy, 
+                                //float instrumentalness, 
+                                //float speechiness, 
+                                float valence)
     {
         var audioFeatures = new List<SpotifyAPI.Web.Models.AudioFeatures>();
 
@@ -243,10 +247,12 @@ public class ExampleTracksController : LayoutGroupBase<Track>
         foreach (var f in audioFeatures)
         {
             //smaller grades are better (less different from the parameters chosen)
-            float grade = (Math.Abs(f.Loudness - loudness) +
+            float grade = (//Math.Abs(f.Loudness - loudness) +
                            Math.Abs(f.Energy - energy) +
-                           Math.Abs(f.Instrumentalness - instrumentalness) +
-                           Math.Abs(f.Speechiness - speechiness));
+                           //Math.Abs(f.Instrumentalness - instrumentalness) +
+                           //Math.Abs(f.Speechiness - speechiness) +
+                           Math.Abs(f.Valence - valence)
+                           );
 
             trackGrades.Add(new Tuple<Track, float>(m_tracks[count], grade));
             trackGrades.Sort((a, b) => a.Item2.CompareTo(b.Item2));

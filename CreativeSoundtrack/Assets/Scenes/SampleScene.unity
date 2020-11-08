@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224730636923585968, guid: 9da3cdbf8b78d2341992815e5f8ba527,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.50003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da3cdbf8b78d2341992815e5f8ba527, type: 3}
 --- !u!1 &82091138
@@ -828,10 +833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa423db2769e0e447956c5103f9ec424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loudness: 0
-  energy: 0
-  instrumentalness: 0
-  speechiness: 0
+  loudness: 0.432
+  energy: 0.579
+  instrumentalness: 1
+  speechiness: 0.427
 --- !u!1 &502181543
 GameObject:
   m_ObjectHideFlags: 0
