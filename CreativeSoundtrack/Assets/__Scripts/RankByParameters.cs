@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class RankByParameters : MonoBehaviour
 {
     [Range(0, 1), SerializeField]
