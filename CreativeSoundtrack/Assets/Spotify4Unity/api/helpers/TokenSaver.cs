@@ -56,7 +56,7 @@ public class TokenSaver
     /// <returns></returns>
     public static bool HasSavedTokenInfo()
     {
-        return !string.IsNullOrEmpty(PlayerPrefs.GetString(PREFS_TOKEN_NAME));
+        return false;// !string.IsNullOrEmpty(PlayerPrefs.GetString(PREFS_TOKEN_NAME));
     }
 
     /// <summary>

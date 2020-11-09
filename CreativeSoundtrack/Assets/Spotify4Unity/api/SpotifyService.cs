@@ -3,6 +3,7 @@ using SpotifyAPI.Web.Auth;
 using SpotifyAPI.Web.Enums;
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using SAPIModels = SpotifyAPI.Web.Models;
@@ -129,7 +130,7 @@ namespace Spotify4Unity
                 auth.OpenBrowser();
 
                 if (m_timeoutRoutine == null)
-                    m_timeoutRoutine = StartCoroutine(AwaitConnectionTimeout(ConnectionTimeout, auth));
+                    new Thread(() => AwaitConnectionTimeout(ConnectionTimeout, auth)).Start();
 
                 Analysis.Log("Awaiting authentification completion in browser", Analysis.LogLevel.Vital);
             }
@@ -162,9 +163,9 @@ namespace Spotify4Unity
         /// <param name="timeoutSeconds"></param>
         /// <param name="auth"></param>
         /// <returns></returns>
-        private System.Collections.IEnumerator AwaitConnectionTimeout(int timeoutSeconds, AuthorizationCodeAuth auth)
+        private void AwaitConnectionTimeout(int timeoutSeconds, AuthorizationCodeAuth auth)
         {
-            yield return new WaitForSeconds(timeoutSeconds);
+            Thread.Sleep(timeoutSeconds * 1000);
 
             if (IsConnecting && !IsConnected)
             {

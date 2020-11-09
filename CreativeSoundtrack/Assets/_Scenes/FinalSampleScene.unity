@@ -37766,8 +37766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 15306
-  energy: 0
-  valence: 0
+  energy: 1
+  valence: 1
 --- !u!1001 &884230396
 PrefabInstance:
   m_ObjectHideFlags: 0

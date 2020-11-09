@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
@@ -18,7 +19,8 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
     private void Start()
     {
-        StartCoroutine(InitializationCoroutine());
+        Thread initThread = new Thread(Initializate);
+        initThread.Start();
     }
 
     private void Connect()
@@ -32,13 +34,13 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         m_tracks = spotifyService.GetSavedTracks();
     }
 
-    private IEnumerator InitializationCoroutine()
+    private void Initializate()
     {
         Connect();
 
         while (m_tracks == null)
         {
-            yield return new WaitForSeconds(1);
+            Thread.Sleep(500);
             GetAllUserTracks();
             Debug.Log("Trying to get users song!");
         }
@@ -86,7 +88,7 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
     private async void Play()
     {
-        Debug.Log("Playing " + m_tracks[0].Title + " in " + spotifyService.ActiveDevice.Name);
+        Debug.Log("Playing " + m_tracks[0].Title + " in " + spotifyService.ActiveDevice?.Name);
         //spotifyService.PlaySong(m_tracks[0].TrackId);
         await spotifyService.PlayTrackAsync(m_tracks[0]);
         //await spotifyService.PlayAsync();

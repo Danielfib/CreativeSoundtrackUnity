@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 //[ExecuteInEditMode]
@@ -31,14 +32,17 @@ public class SoundtrackArea : MonoBehaviour
 
     public void PlayerEntered()
     {
-        if(CreativeSoundtrackManager.Instance.currentAreaPlaying != id)
+        new Thread(() =>
         {
-            CreativeSoundtrackManager.Instance.currentAreaPlaying = id;
-            CreativeSoundtrackManager.Instance.SortByFeatures(//loudness, 
-                                                                energy,
-                                                                //instrumentalness, 
-                                                                //speechiness, 
-                                                                valence);
-        }
+            if(CreativeSoundtrackManager.Instance.currentAreaPlaying != id)
+            {
+                CreativeSoundtrackManager.Instance.currentAreaPlaying = id;
+                CreativeSoundtrackManager.Instance.SortByFeatures(//loudness, 
+                                                                    energy,
+                                                                    //instrumentalness, 
+                                                                    //speechiness, 
+                                                                    valence);
+            }
+        }).Start();
     }
 }
