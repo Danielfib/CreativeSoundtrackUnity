@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class SoundtrackArea : MonoBehaviour
 {
     [HideInInspector]
@@ -22,9 +22,9 @@ public class SoundtrackArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Area entered!");
         if(other.tag == "Player")
         {
+            Debug.Log("Area entered!");
             PlayerEntered();
         }
     }

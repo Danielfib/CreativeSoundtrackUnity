@@ -11,7 +11,6 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 {
     [SerializeField]
     private SpotifyService spotifyService;
-    private SpotifyWebAPI m_webAPI;
     private List<Track> m_tracks = null;
 
     [HideInInspector]
@@ -59,7 +58,7 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         {
             int howMany = Math.Min(100, tracksIds.Count - i - 1);
             var sublist = tracksIds.GetRange(i, howMany);
-            var af = m_webAPI.GetSeveralAudioFeatures(sublist).AudioFeatures;
+            var af = spotifyService.GetSeveralAudioFeatures(sublist).AudioFeatures;
             audioFeatures.AddRange(af);
         }
 
@@ -82,10 +81,14 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
         m_tracks = trackGrades.Select(x => x.Item1).ToList();
         //UpdateUI(m_tracks);
+        Play();
     }
 
     private async void Play()
     {
-        await spotifyService.PlayAsync();
+        Debug.Log("Playing " + m_tracks[0].Title + " in " + spotifyService.ActiveDevice.Name);
+        //spotifyService.PlaySong(m_tracks[0].TrackId);
+        await spotifyService.PlayTrackAsync(m_tracks[0]);
+        //await spotifyService.PlayAsync();
     }
 }
