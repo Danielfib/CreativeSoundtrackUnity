@@ -47,6 +47,20 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         Debug.Log("Got user songs!");
     }
 
+    public void EnteredNewArea(int areaId, float energy, float valence)
+    {
+        if (currentAreaPlaying != areaId && m_tracks != null)
+        {
+            currentAreaPlaying = areaId;
+            SortByFeatures(//loudness, 
+                            energy,
+                            //instrumentalness, 
+                            //speechiness, 
+                            valence);
+            Play();
+        }
+    }
+
     public void SortByFeatures(//float loudness, 
                                 float energy,
                                 //float instrumentalness, 
@@ -82,8 +96,6 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         }
 
         m_tracks = trackGrades.Select(x => x.Item1).ToList();
-        //UpdateUI(m_tracks);
-        Play();
     }
 
     private async void Play()

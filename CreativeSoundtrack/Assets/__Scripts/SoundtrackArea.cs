@@ -34,15 +34,7 @@ public class SoundtrackArea : MonoBehaviour
     {
         new Thread(() =>
         {
-            if(CreativeSoundtrackManager.Instance.currentAreaPlaying != id)
-            {
-                CreativeSoundtrackManager.Instance.currentAreaPlaying = id;
-                CreativeSoundtrackManager.Instance.SortByFeatures(//loudness, 
-                                                                    energy,
-                                                                    //instrumentalness, 
-                                                                    //speechiness, 
-                                                                    valence);
-            }
+            CreativeSoundtrackManager.Instance.EnteredNewArea(id, energy, valence);
         }).Start();
     }
 }
