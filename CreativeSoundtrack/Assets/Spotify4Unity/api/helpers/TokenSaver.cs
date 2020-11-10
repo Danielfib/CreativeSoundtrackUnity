@@ -56,7 +56,8 @@ public class TokenSaver
     /// <returns></returns>
     public static bool HasSavedTokenInfo()
     {
-        return false;// !string.IsNullOrEmpty(PlayerPrefs.GetString(PREFS_TOKEN_NAME));
+        return !string.IsNullOrEmpty(CreativeSoundtrackManager.Instance.SavedTokenJSON);
+        // !string.IsNullOrEmpty(PlayerPrefs.GetString(PREFS_TOKEN_NAME));
     }
 
     /// <summary>
@@ -65,7 +66,7 @@ public class TokenSaver
     /// <returns></returns>
     public static Token LoadToken()
     {
-        string json = PlayerPrefs.GetString(PREFS_TOKEN_NAME);
+        string json = CreativeSoundtrackManager.Instance.SavedTokenJSON;//PlayerPrefs.GetString(PREFS_TOKEN_NAME);
         if (string.IsNullOrEmpty(json))
             return null;
 
@@ -86,7 +87,8 @@ public class TokenSaver
         try
         {
             string json = JsonUtility.ToJson(new TokenWrapper(token));
-            PlayerPrefs.SetString(PREFS_TOKEN_NAME, json);
+            //PlayerPrefs.SetString(PREFS_TOKEN_NAME, json);
+            CreativeSoundtrackManager.Instance.SavedTokenJSON = json;
         }
         catch(Exception e)
         {
@@ -105,10 +107,11 @@ public class TokenSaver
     /// <returns></returns>
     public static bool DeleteToken()
     {
-        string json = PlayerPrefs.GetString(PREFS_TOKEN_NAME);
+        string json = CreativeSoundtrackManager.Instance.SavedTokenJSON;//PlayerPrefs.GetString(PREFS_TOKEN_NAME);
         if(!string.IsNullOrEmpty(json))
         {
-            PlayerPrefs.SetString(PREFS_TOKEN_NAME, null);
+            CreativeSoundtrackManager.Instance.SavedTokenJSON = null;
+            //PlayerPrefs.SetString(PREFS_TOKEN_NAME, null);
             return true;
         }
         return false;

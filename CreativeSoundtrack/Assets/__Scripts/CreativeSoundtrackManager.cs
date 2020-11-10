@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 {
+    [HideInInspector]
+    public string SavedTokenJSON;
+
     [SerializeField]
     private SpotifyService spotifyService;
     private List<Track> m_tracks = null;
