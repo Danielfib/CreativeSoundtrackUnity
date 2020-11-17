@@ -20,9 +20,11 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
     [HideInInspector]
     public int currentAreaPlaying = -1;
 
+    List<Action> initializationActions = new List<Action>();
+
     private void Start()
     {
-        Thread initThread = new Thread(Initializate);
+        Thread initThread = new Thread(Initialize);
         initThread.Start();
     }
 
@@ -37,7 +39,7 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         m_tracks = spotifyService.GetSavedTracks();
     }
 
-    private void Initializate()
+    private void Initialize()
     {
         Connect();
 
@@ -48,23 +50,34 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
             Debug.Log("Trying to get users song!");
         }
         Debug.Log("Got user songs!");
+
+        foreach(var initializationAction in initializationActions)
+        {
+            initializationAction.Invoke();
+        }
     }
 
-    public void EnteredNewArea(int areaId, float energy, float valence)
+    public void AddInitilizationAction(Action a)
+    {
+        initializationActions.Add(a);
+    }
+
+    public bool EnteredNewArea(int areaId)
     {
         if (currentAreaPlaying != areaId && m_tracks != null)
         {
             currentAreaPlaying = areaId;
-            SortByFeatures(//loudness, 
-                            energy,
-                            //instrumentalness, 
-                            //speechiness, 
-                            valence);
-            Play();
+            return true;
         }
+        return false;
     }
 
-    public void SortByFeatures(//float loudness, 
+    public List<Track> GetBestSongsFor(float energy, float valence, int howMany)
+    {
+        return SortByFeatures(energy, valence).GetRange(0, howMany);
+    }
+
+    public List<Track> SortByFeatures(//float loudness, 
                                 float energy,
                                 //float instrumentalness, 
                                 //float speechiness, 
@@ -98,14 +111,14 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
             count++;
         }
 
-        m_tracks = trackGrades.Select(x => x.Item1).ToList();
+        return(trackGrades.Select(x => x.Item1).ToList());
     }
 
-    private async void Play()
+    public async void PlayTrack(Track track)
     {
-        Debug.Log("Playing " + m_tracks[0].Title + " in " + spotifyService.ActiveDevice?.Name);
+        Debug.Log("Playing " + track.Title + " in " + spotifyService.ActiveDevice?.Name);
         //spotifyService.PlaySong(m_tracks[0].TrackId);
-        await spotifyService.PlayTrackAsync(m_tracks[0]);
+        await spotifyService.PlayTrackAsync(track);
         //await spotifyService.PlayAsync();
     }
 }

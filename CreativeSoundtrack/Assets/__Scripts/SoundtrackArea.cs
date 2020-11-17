@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Spotify4Unity.Dtos;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine;
 //[ExecuteInEditMode]
 public class SoundtrackArea : MonoBehaviour
 {
+    List<Track> tracks = new List<Track>();
+
     [HideInInspector]
     public int id;
 
@@ -19,6 +22,15 @@ public class SoundtrackArea : MonoBehaviour
     private void Awake()
     {
         id = gameObject.GetInstanceID();
+
+        CreativeSoundtrackManager.Instance.AddInitilizationAction(() =>
+        {
+            new Thread(() =>
+            {
+                tracks.AddRange(CreativeSoundtrackManager.Instance.GetBestSongsFor(energy, valence, 5));
+                Debug.Log("InitializedArea");
+            }).Start();
+        });
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,9 +44,9 @@ public class SoundtrackArea : MonoBehaviour
 
     public void PlayerEntered()
     {
-        new Thread(() =>
+        if (CreativeSoundtrackManager.Instance.EnteredNewArea(id))
         {
-            CreativeSoundtrackManager.Instance.EnteredNewArea(id, energy, valence);
-        }).Start();
+            CreativeSoundtrackManager.Instance.PlayTrack(tracks[0]);
+        }
     }
 }
