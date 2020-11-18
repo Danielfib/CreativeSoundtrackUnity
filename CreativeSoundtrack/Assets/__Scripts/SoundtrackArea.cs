@@ -8,6 +8,7 @@ using UnityEngine;
 public class SoundtrackArea : MonoBehaviour
 {
     List<Track> tracks = new List<Track>();
+    private int currentTrackId = 0;
 
     [HideInInspector]
     public int id;
@@ -46,7 +47,24 @@ public class SoundtrackArea : MonoBehaviour
     {
         if (CreativeSoundtrackManager.Instance.EnteredNewArea(id))
         {
-            CreativeSoundtrackManager.Instance.PlayTrack(tracks[0]);
+            CreativeSoundtrackManager.Instance.PlayTrack(tracks[0], PlayNextSong);
         }
+    }
+
+    //called when current sont is about to end
+    public void PlayNextSong()
+    {
+        int randomIndex = Mathf.RoundToInt(Random.Range(0, tracks.Count - 1));
+        if(tracks.Count > 1)
+        {
+            while(randomIndex == currentTrackId)
+            {
+                randomIndex = Mathf.RoundToInt(Random.Range(0, tracks.Count - 1));
+            }
+        }
+
+        var nextSong = tracks[randomIndex];
+        CreativeSoundtrackManager.Instance.PlayTrack(nextSong, PlayNextSong);
+        currentTrackId = randomIndex;
     }
 }

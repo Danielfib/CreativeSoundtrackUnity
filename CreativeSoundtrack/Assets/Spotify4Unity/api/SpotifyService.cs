@@ -247,5 +247,14 @@ namespace Spotify4Unity
                 Analysis.Log("Closed Spotify client", Analysis.LogLevel.All);
             }
         }
+
+        public int GetPlaybackTimeToEnd()
+        {
+            var playback = m_webAPI.GetPlayback();
+            if (playback != null)
+                return playback.Item.DurationMs - playback.ProgressMs;
+            else
+                return -1;
+        }
     }
 }

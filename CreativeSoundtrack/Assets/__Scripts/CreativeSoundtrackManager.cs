@@ -22,6 +22,8 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
     List<Action> initializationActions = new List<Action>();
 
+    private const int SONG_ABOUT_TO_END_TOLERANCE = 2000; //milliseconds
+
     private void Start()
     {
         Thread initThread = new Thread(Initialize);
@@ -57,6 +59,16 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         }
     }
 
+    private IEnumerator StartWatchForSongEnd(Action callback)
+    {
+        yield return new WaitForSeconds(10);
+
+        int timeToEnd = spotifyService.GetPlaybackTimeToEnd();
+        yield return new WaitForSeconds((timeToEnd - SONG_ABOUT_TO_END_TOLERANCE) / 1000f);
+
+        callback.Invoke();
+    }
+
     public void AddInitilizationAction(Action a)
     {
         initializationActions.Add(a);
@@ -74,7 +86,7 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
     public List<Track> GetBestSongsFor(float energy, float valence, int howMany)
     {
-        return SortByFeatures(energy, valence).GetRange(0, howMany);
+        return SortByFeatures(energy, valence).GetRange(0, Mathf.Min(howMany, m_tracks.Count));
     }
 
     public List<Track> SortByFeatures(//float loudness, 
@@ -114,11 +126,12 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         return(trackGrades.Select(x => x.Item1).ToList());
     }
 
-    public async void PlayTrack(Track track)
+    public async void PlayTrack(Track track, Action songAboutToEndCallback)
     {
         Debug.Log("Playing " + track.Title + " in " + spotifyService.ActiveDevice?.Name);
-        //spotifyService.PlaySong(m_tracks[0].TrackId);
         await spotifyService.PlayTrackAsync(track);
-        //await spotifyService.PlayAsync();
+
+        StopAllCoroutines();
+        StartCoroutine(StartWatchForSongEnd(songAboutToEndCallback));
     }
 }
