@@ -411,10 +411,10 @@ namespace Spotify4Unity
 
             Task.Run(async () => await LoadUserInfo());
 
-            PlaylistLoader playlistLoader = this.gameObject.AddComponent<PlaylistLoader>();
-            playlistLoader.Load(this, EventManager);
-            SavedTracksLoader tracksLoader = this.gameObject.AddComponent<SavedTracksLoader>();
-            tracksLoader.Load(this, EventManager);
+            //PlaylistLoader playlistLoader = this.gameObject.AddComponent<PlaylistLoader>();
+            //playlistLoader.Load(this, EventManager);
+            //SavedTracksLoader tracksLoader = this.gameObject.AddComponent<SavedTracksLoader>();
+            //tracksLoader.Load(this, EventManager);
 
             m_trackTimeLoopTimer = new Timer(OnRunUpdateInteval, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(UpdateFrequencyMs));
         }

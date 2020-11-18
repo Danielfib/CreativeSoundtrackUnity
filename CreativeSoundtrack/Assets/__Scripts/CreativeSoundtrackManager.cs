@@ -26,6 +26,8 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
     private void Start()
     {
+        SavedTokenJSON = PlayerPrefs.GetString("backedUpTokenJSON");
+
         Thread initThread = new Thread(Initialize);
         initThread.Start();
     }
@@ -133,5 +135,10 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
         StopAllCoroutines();
         StartCoroutine(StartWatchForSongEnd(songAboutToEndCallback));
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetString("backedUpTokenJSON", SavedTokenJSON);
     }
 }
