@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: cfb24f30089a6a641afbb4016dc2cda3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - battleVibeIcon: {fileID: 2800000, guid: d22243690a71da84c9520f25f7189081, type: 3}
+  - romanticVibeIcon: {fileID: 2800000, guid: 027028abbb3dc35449a600b815cfcbdc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
