@@ -13,7 +13,6 @@ public class SoundtrackArea : MonoBehaviour
     [HideInInspector]
     public int id;
 
-    [Range(0, 1), SerializeField]
     private float //loudness,
                   energy,
                   //instrumentalness,
@@ -66,5 +65,11 @@ public class SoundtrackArea : MonoBehaviour
         var nextSong = tracks[randomIndex];
         CreativeSoundtrackManager.Instance.PlayTrack(nextSong, PlayNextSong);
         currentTrackId = randomIndex;
+    }
+
+    public void SetAudioFeatures(float energy, float valence)
+    {
+        this.energy = energy;
+        this.valence = valence;
     }
 }

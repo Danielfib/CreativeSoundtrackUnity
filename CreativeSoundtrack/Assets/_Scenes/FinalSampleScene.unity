@@ -94506,6 +94506,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundtrackArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2979112111759290296, guid: 4641dda3f60ac4642bc1f58388f2185e,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 027028abbb3dc35449a600b815cfcbdc, type: 3}
+    - target: {fileID: 2979112111759290297, guid: 4641dda3f60ac4642bc1f58388f2185e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 11.758716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979112111759290297, guid: 4641dda3f60ac4642bc1f58388f2185e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 5.60637
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979112111759290297, guid: 4641dda3f60ac4642bc1f58388f2185e,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -6.1452274
+      objectReference: {fileID: 0}
     - target: {fileID: 2979112111759290302, guid: 4641dda3f60ac4642bc1f58388f2185e,
         type: 3}
       propertyPath: m_LocalPosition.x
