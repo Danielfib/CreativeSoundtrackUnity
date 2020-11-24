@@ -1,6 +1,8 @@
 energy,liveness,speechiness,danceability,valence,uri,genre
+0.821,0.0462,0.175,0.527,0.648,spotify:track:15iXQM0NqJJCWcpeNmrWsh,nova mpb pop lgbtq+ brasileira
+0.524,0.241,0.0287,0.733,0.316,spotify:track:4qBMiRsJjtm1WR4KyAQqrX,
 0.391,0.137,0.0845,0.843,0.496,spotify:track:51Fjme0JiitpyXKuyQiCDo,pop rap
-0.65,0.0905,0.0306,0.772,0.262,spotify:track:3wPPWcVuinAU7dXcJXtCID,uk contemporary r&b
+0.65,0.0905,0.0306,0.772,0.262,spotify:track:3wPPWcVuinAU7dXcJXtCID,tropical house uk contemporary r&b
 0.563,0.109,0.0945,0.546,0.897,spotify:track:2DsZ6pXK1AG6emFugTeYW3,mpb nova mpb pop nacional
 0.787,0.323,0.032,0.66,0.199,spotify:track:6juLaduD4STCUDWT0AYun4,k-pop girl group
 0.629,0.324,0.0735,0.798,0.4,spotify:track:3F9ByoUqu31xU0I3G5xfVg,dance pop pop pop dance pop rap
@@ -13,7 +15,7 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.74,0.22,0.172,0.785,0.746,spotify:track:4cno0k9jDEFpLAQyHNjqVx,funk carioca funk pop pagode baiano pop nacional
 0.982,0.162,0.208,0.469,0.413,spotify:track:2yuyPke3xjantGgapFPH3e,j-dance
 0.499,0.0985,0.157,0.943,0.881,spotify:track:0QWe786CWm4PVKRdaehQoB,social media pop
-0.477,0.0579,0.0687,0.733,0.545,spotify:track:3mRLHiSHYtC8Hk7bzZdUs1,modern alternative rock modern rock pop
+0.477,0.0579,0.0687,0.733,0.545,spotify:track:3mRLHiSHYtC8Hk7bzZdUs1,indie poptimism modern alternative rock modern rock pop
 0.836,0.116,0.0444,0.745,0.874,spotify:track:2AY1UAimvTqjJC8vDJsOyy,dance pop latin latin pop latin viral pop pop post-teen pop rap latina reggaeton trap latino
 0.824,0.105,0.0772,0.7,0.763,spotify:track:6I4tqXElEnqdoPHp34Co21,
 0.715,0.271,0.0407,0.679,0.571,spotify:track:6fNhZRFEkBfgW39W3wKARJ,metropopolis modern rock pop pop rock
@@ -28,7 +30,7 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.976,0.0876,0.0492,0.716,0.483,spotify:track:3SYOErtILwcoC4FofjtkxS,funk carioca nova mpb nova musica pernambucana
 0.82,0.0706,0.0728,0.861,0.781,spotify:track:1dtTRXifeGC51adYy0902s,future funk
 0.764,0.0503,0.214,0.668,0.691,spotify:track:6V5DQrWqqMYfJL69FEv86o,brazilian hip hop funk carioca pop rap brasileiro
-0.972,0.297,0.0774,0.745,0.556,spotify:track:4Clmg1g8n2yBYG13Z1oSdG,circuit guaracha
+0.972,0.297,0.0774,0.745,0.556,spotify:track:4Clmg1g8n2yBYG13Z1oSdG,circuit guaracha perreo
 0.478,0.105,0.0484,0.14,0.0412,spotify:track:3f4fc8c8unrQeKecmUPEDR,video game music
 0.789,0.189,0.044,0.487,0.0564,spotify:track:7wBJfHzpfI3032CSD7CE2m,rap
 0.728,0.149,0.0484,0.841,0.43,spotify:track:6gBFPUFcJLzWGx4lenP6h2,rap
@@ -47,8 +49,8 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.561,0.108,0.335,0.862,0.541,spotify:track:63SHcJzckFykS8faA5zojY,funk 150 bpm
 0.614,0.134,0.0427,0.687,0.71,spotify:track:3KDrOuo1mXgkuZVQnpFAD7,east coast reggae reggae
 0.944,0.941,0.0465,0.4,0.403,spotify:track:3lbtAQu0xBhbVXwgmxj9zy,broadway show tunes west end
-0.48,0.102,0.0275,0.466,0.189,spotify:track:0NMzV2etWr2eBIbUDuKA5I,
-0.538,0.114,0.211,0.325,0.247,spotify:track:02OMdYU4K7TTsZKTqoZue9,modern alternative rock rebel blues
+0.633,0.0775,0.0708,0.84,0.685,spotify:track:15nSPIvq0OlUjOizpinwgH,funk carioca nova mpb nova musica pernambucana
+0.798,0.0932,0.0391,0.52,0.168,spotify:track:4jp4Z02kzzg8gK0NmDGgml,gaming edm nordic house
 0.902,0.128,0.0468,0.366,0.375,spotify:track:3zdg1IMqKog1YNRpTjKDOB,alternative metal canadian pop punk canadian punk nu metal pop punk punk
 0.371,0.31,0.0324,0.297,0.223,spotify:track:16J8IBHqKE3wzfbZZxArdY,big room edm electro house indie poptimism pop dance pop edm tropical house
 0.619,0.113,0.102,0.878,0.639,spotify:track:2YpeDb67231RjR0MgVLzsG,country rap lgbtq+ hip hop pop rap queer country
@@ -75,7 +77,7 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.826,0.286,0.0892,0.689,0.613,spotify:track:3hySeWiuSYBnF3dItYG82i,francoton french pop
 0.608,0.635,0.0659,0.806,0.849,spotify:track:1huvTbEYtgltjQRXzrNKGi,pop uk pop
 0.787,0.58,0.401,0.714,0.131,spotify:track:4dfAUJI1QesmK5HfK9gtYs,detroit hip hop hip hop rap
-0.753,0.268,0.239,0.49,0.325,spotify:track:4XaButfzRGK9aK8NN28Ie0,modern alternative rock modern rock rebel blues
+0.753,0.268,0.239,0.49,0.325,spotify:track:4XaButfzRGK9aK8NN28Ie0,indie poptimism modern alternative rock modern rock rebel blues
 0.893,0.0905,0.0532,0.56,0.174,spotify:track:3H3nKeXkD84Us8t9IDbKua,alternative metal groove metal nu metal
 0.505,0.104,0.117,0.489,0.337,spotify:track:0y1QJc3SJVPKJ1OvFmFqe6,icelandic indie icelandic rock modern alternative rock modern rock
 0.533,0.0926,0.0416,0.707,0.472,spotify:track:0EYKD5N0mldDeVTCzCfzqr,channel pop indie cafe pop neo mellow viral pop
@@ -97,8 +99,8 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.956,0.0588,0.118,0.52,0.448,spotify:track:6RYO4OMLw6uEJ4XiaZUKpD,antiviral pop
 0.666,0.286,0.0317,0.612,0.353,spotify:track:1Jj35pWytKHrwh36IanRVh,alternative metal canadian ccm canadian metal canadian rock christian alternative rock christian rock nu metal rap metal
 0.967,0.61,0.0508,0.529,0.596,spotify:track:0UFDKFqW2oGspYeYqo9wjA,alternative metal nu metal post-grunge rap metal
-0.943,0.091,0.0602,0.442,0.781,spotify:track:6L89mwZXSOwYl76YXfX13s,permanent wave pop punk punk
-0.714,0.0683,0.0391,0.516,0.312,spotify:track:5UYYQuk6SjY3S892UuLXE3,modern alternative rock rebel blues
+0.775,0.102,0.0546,0.309,0.279,spotify:track:6B8CAgQ38mWf7xTvFtC0BB,dance pop indietronica metropopolis pop pop dance post-teen pop uk pop
+0.195,0.0949,0.0797,0.27,0.171,spotify:track:1u0THw5xaGd7sYzJEh48Lt,baroque pop pop uk alternative pop
 0.849,0.0878,0.0536,0.757,0.826,spotify:track:6rrTr2HEAzlpC4KWZxF3S1,dance pop girl group pop pop dance post-teen pop talent show uk pop
 0.923,0.373,0.089,0.633,0.473,spotify:track:5Ep3T0EPeNP6FYN9S3KhiL,alternative metal canadian ccm canadian metal canadian rock christian alternative rock christian rock nu metal rap metal
 0.878,0.0771,0.0326,0.532,0.579,spotify:track:6jg3Om6ZBMKlylforWGPEC,alternative metal canadian ccm canadian metal canadian rock christian alternative rock christian rock nu metal rap metal
@@ -108,7 +110,7 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.734,0.13,0.0316,0.754,0.704,spotify:track:0q3xdwnXoHgHsc32CxpTG4,channel pop neo mellow pop viral pop
 0.851,0.237,0.0645,0.365,0.309,spotify:track:1sWeSMifj6Z6kZyI6z3bRc,modern rock pop rock
 0.703,0.0979,0.0429,0.605,0.414,spotify:track:7dzFz1IeET9tLaZYF9b3NO,contemporary country country country road modern country rock redneck texas country
-0.856,0.274,0.0565,0.717,0.645,spotify:track:7I8EGPtqTwlC0UlCAkpYtP,boy band dance pop pop post-teen pop viral pop
+0.856,0.274,0.0565,0.717,0.645,spotify:track:7I8EGPtqTwlC0UlCAkpYtP,boy band dance pop pop post-teen pop
 0.891,0.256,0.119,0.741,0.449,spotify:track:3cFsmM51N5zMAuu1nNY4Tw,dance pop dancehall pop pop dance pop rap
 0.741,0.289,0.0287,0.72,0.357,spotify:track:6WkJ2OK163XXS2oARUC9JM,chicago house
 0.563,0.143,0.0272,0.452,0.209,spotify:track:7JIuqL4ZqkpfGKQhYlrirs,candy pop emo pixie pop emo pop punk
@@ -147,8 +149,8 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.663,0.0621,0.1,0.459,0.412,spotify:track:69Sy7207dnixZ6w7RSV9Kb,video game music
 0.473,0.206,0.0359,0.599,0.207,spotify:track:3UOquqzekRURGgIdKUPkxN,
 0.5,0.155,0.0443,0.539,0.545,spotify:track:0xPrwvT2vdieEch0oxLmvh,modern alternative rock rebel blues
-0.686,0.0917,0.0367,0.57,0.485,spotify:track:2hsWm0y2BS0JHNyTXit5iQ,modern alternative pop
-0.715,0.239,0.0391,0.427,0.403,spotify:track:0I1o0s1sqCQA8rVwxLks3K,otacore
+0.959,0.0984,0.0681,0.329,0.0958,spotify:track:3sTndYwxkFzp35QhfH6agO,noise
+0.909,0.333,0.0712,0.423,0.4,spotify:track:7LtRYzEkOiMyhYqqm5uy9t,pop emo
 0.422,0.0705,0.0323,0.47,0.138,spotify:track:4ds7fLYjpDeDS1l7oe2sjd,epicore
 0.875,0.151,0.0441,0.635,0.483,spotify:track:5QmR6XFJsGIJ4dZf75hiy6,gymcore modern alternative rock post-screamo
 0.731,0.126,0.0429,0.431,0.365,spotify:track:6WsyydKLkmYIshnMyIMKDu,christian alternative rock christian rock
@@ -188,14 +190,12 @@ energy,liveness,speechiness,danceability,valence,uri,genre
 0.836,0.1,0.0612,0.56,0.572,spotify:track:55AyhfX2mt2HJSlZPdhjyM,anthem worship
 0.941,0.802,0.0918,0.402,0.176,spotify:track:0ygzuhPmh28JzBZYQm8TkJ,alternative metal future rock
 0.825,0.145,0.04,0.429,0.269,spotify:track:1uZswvpSomn1xZmtuBZRF3,pixie
-0.539,0.105,0.0322,0.573,0.39,spotify:track:5sah9eLuxZlWxKTTCOk8GN,modern rock rebel blues
+0.539,0.105,0.0322,0.573,0.39,spotify:track:5sah9eLuxZlWxKTTCOk8GN,indie poptimism modern rock rebel blues
 0.78,0.35,0.0418,0.54,0.514,spotify:track:5ezjiqla1EIIXUOWrs2aGu,modern alternative rock rebel blues
 0.419,0.112,0.0489,0.521,0.07,spotify:track:6NNECt6PMWP4zfIJhPUnU3,epicore modern alternative rock
 0.551,0.0914,0.0335,0.383,0.108,spotify:track:6GRSgTmK2i61nsLOviQ8MJ,modern alternative pop
 0.745,0.118,0.0425,0.389,0.432,spotify:track:1UEnBGwENBsi21ZzrGfiNI,otacore viral pop
 0.877,0.0898,0.0582,0.314,0.516,spotify:track:2L6fYOGi2YAwTI0pmGorc7,gymcore heavy alternative post-screamo
-0.67,0.0595,0.0328,0.445,0.378,spotify:track:6hKpIzJWHQduwojjkWG8zt,modern rock rebel blues
+0.67,0.0595,0.0328,0.445,0.378,spotify:track:6hKpIzJWHQduwojjkWG8zt,indie poptimism modern rock rebel blues
 0.924,0.314,0.0741,0.593,0.784,spotify:track:3MzFFjvLB0PqDuTwJpgVc3,gymcore modern alternative rock post-screamo
 0.959,0.0511,0.138,0.496,0.512,spotify:track:1xdULwrU1cJT1SR62vteBS,christian alternative rock christian rock gothic alternative pixie pop emo slayer
-0.577,0.334,0.0322,0.357,0.147,spotify:track:3TnGabS1ylWPNOTa2kJBDn,la pop
-0.501,0.0601,0.0354,0.534,0.352,spotify:track:1upmFlpOWcIa1e3nGkdhhx,anthem worship

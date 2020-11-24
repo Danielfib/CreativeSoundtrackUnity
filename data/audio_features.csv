@@ -1,4 +1,6 @@
 energy,liveness,speechiness,danceability,valence,uri
+0.821,0.0462,0.175,0.527,0.648,spotify:track:15iXQM0NqJJCWcpeNmrWsh
+0.524,0.241,0.0287,0.733,0.316,spotify:track:4qBMiRsJjtm1WR4KyAQqrX
 0.391,0.137,0.0845,0.843,0.496,spotify:track:51Fjme0JiitpyXKuyQiCDo
 0.65,0.0905,0.0306,0.772,0.262,spotify:track:3wPPWcVuinAU7dXcJXtCID
 0.563,0.109,0.0945,0.546,0.897,spotify:track:2DsZ6pXK1AG6emFugTeYW3
@@ -47,8 +49,8 @@ energy,liveness,speechiness,danceability,valence,uri
 0.561,0.108,0.335,0.862,0.541,spotify:track:63SHcJzckFykS8faA5zojY
 0.614,0.134,0.0427,0.687,0.71,spotify:track:3KDrOuo1mXgkuZVQnpFAD7
 0.944,0.941,0.0465,0.4,0.403,spotify:track:3lbtAQu0xBhbVXwgmxj9zy
-0.48,0.102,0.0275,0.466,0.189,spotify:track:0NMzV2etWr2eBIbUDuKA5I
-0.538,0.114,0.211,0.325,0.247,spotify:track:02OMdYU4K7TTsZKTqoZue9
+0.633,0.0775,0.0708,0.84,0.685,spotify:track:15nSPIvq0OlUjOizpinwgH
+0.798,0.0932,0.0391,0.52,0.168,spotify:track:4jp4Z02kzzg8gK0NmDGgml
 0.902,0.128,0.0468,0.366,0.375,spotify:track:3zdg1IMqKog1YNRpTjKDOB
 0.371,0.31,0.0324,0.297,0.223,spotify:track:16J8IBHqKE3wzfbZZxArdY
 0.619,0.113,0.102,0.878,0.639,spotify:track:2YpeDb67231RjR0MgVLzsG
@@ -97,8 +99,8 @@ energy,liveness,speechiness,danceability,valence,uri
 0.956,0.0588,0.118,0.52,0.448,spotify:track:6RYO4OMLw6uEJ4XiaZUKpD
 0.666,0.286,0.0317,0.612,0.353,spotify:track:1Jj35pWytKHrwh36IanRVh
 0.967,0.61,0.0508,0.529,0.596,spotify:track:0UFDKFqW2oGspYeYqo9wjA
-0.943,0.091,0.0602,0.442,0.781,spotify:track:6L89mwZXSOwYl76YXfX13s
-0.714,0.0683,0.0391,0.516,0.312,spotify:track:5UYYQuk6SjY3S892UuLXE3
+0.775,0.102,0.0546,0.309,0.279,spotify:track:6B8CAgQ38mWf7xTvFtC0BB
+0.195,0.0949,0.0797,0.27,0.171,spotify:track:1u0THw5xaGd7sYzJEh48Lt
 0.849,0.0878,0.0536,0.757,0.826,spotify:track:6rrTr2HEAzlpC4KWZxF3S1
 0.923,0.373,0.089,0.633,0.473,spotify:track:5Ep3T0EPeNP6FYN9S3KhiL
 0.878,0.0771,0.0326,0.532,0.579,spotify:track:6jg3Om6ZBMKlylforWGPEC
@@ -147,8 +149,8 @@ energy,liveness,speechiness,danceability,valence,uri
 0.663,0.0621,0.1,0.459,0.412,spotify:track:69Sy7207dnixZ6w7RSV9Kb
 0.473,0.206,0.0359,0.599,0.207,spotify:track:3UOquqzekRURGgIdKUPkxN
 0.5,0.155,0.0443,0.539,0.545,spotify:track:0xPrwvT2vdieEch0oxLmvh
-0.686,0.0917,0.0367,0.57,0.485,spotify:track:2hsWm0y2BS0JHNyTXit5iQ
-0.715,0.239,0.0391,0.427,0.403,spotify:track:0I1o0s1sqCQA8rVwxLks3K
+0.959,0.0984,0.0681,0.329,0.0958,spotify:track:3sTndYwxkFzp35QhfH6agO
+0.909,0.333,0.0712,0.423,0.4,spotify:track:7LtRYzEkOiMyhYqqm5uy9t
 0.422,0.0705,0.0323,0.47,0.138,spotify:track:4ds7fLYjpDeDS1l7oe2sjd
 0.875,0.151,0.0441,0.635,0.483,spotify:track:5QmR6XFJsGIJ4dZf75hiy6
 0.731,0.126,0.0429,0.431,0.365,spotify:track:6WsyydKLkmYIshnMyIMKDu
@@ -197,5 +199,3 @@ energy,liveness,speechiness,danceability,valence,uri
 0.67,0.0595,0.0328,0.445,0.378,spotify:track:6hKpIzJWHQduwojjkWG8zt
 0.924,0.314,0.0741,0.593,0.784,spotify:track:3MzFFjvLB0PqDuTwJpgVc3
 0.959,0.0511,0.138,0.496,0.512,spotify:track:1xdULwrU1cJT1SR62vteBS
-0.577,0.334,0.0322,0.357,0.147,spotify:track:3TnGabS1ylWPNOTa2kJBDn
-0.501,0.0601,0.0354,0.534,0.352,spotify:track:1upmFlpOWcIa1e3nGkdhhx

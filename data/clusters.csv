@@ -1,9 +1,5 @@
-name,avg_energy,avg_valence
-High Energy Medium Low Valence,0.8950666666666666,0.32880000000000004
-Medium High Energy Low Valence,0.6364230769230771,0.1632846153846154
-Medium High Energy Medium High Valence,0.6824399999999998,0.64396
-Medium Low Energy Medium Low Valence,0.48211111111111105,0.433
-High Energy High Valence,0.8474285714285713,0.832
-Medium Low Energy Low Valence,0.38697999999999994,0.15176
-Medium High Energy High Valence,0.5448333333333334,0.8316666666666666
-Medium High Energy Medium Low Valence,0.6952580645161291,0.3824516129032258
+energy_level,valence_level,avg_energy,avg_valence
+High Energy,High Valence,0.8329285714285714,0.8295
+Medium High Energy,Medium Low Valence,0.6942962962962964,0.38751851851851854
+Medium High Energy,Low Valence,0.5927727272727273,0.15350909090909093
+High Energy,Medium Low Valence,0.9115161290322579,0.4326774193548387
