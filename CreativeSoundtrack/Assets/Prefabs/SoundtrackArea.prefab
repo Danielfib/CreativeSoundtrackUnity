@@ -44,7 +44,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12.179176, y: 5.785039, z: 13.290456}
-  m_Center: {x: 5.589588, y: 2.3925195, z: -6.145228}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2979112111759290303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,5 +58,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 15306
-  energy: 1
-  valence: 1
