@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-//[ExecuteInEditMode]
 public class SoundtrackArea : MonoBehaviour
 {
     List<Track> tracks = new List<Track>();
@@ -12,12 +11,26 @@ public class SoundtrackArea : MonoBehaviour
 
     [HideInInspector]
     public int id;
-
-    private float //loudness,
-                  energy,
-                  //instrumentalness,
-                  // speechiness, 
+    
+    private float energy,
                   valence;
+
+    [HideInInspector]
+    public Color selectedVibeColor;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = selectedVibeColor;
+        BoxCollider bc = GetComponent<BoxCollider>();
+        Vector3 scaledBounds = Vector3.Scale(bc.size, transform.localScale);
+        Gizmos.DrawWireCube(transform.position, scaledBounds);
+    }
+
+    public void SetAudioFeatures(float energy, float valence)
+    {
+        this.energy = energy;
+        this.valence = valence;
+    }
 
     private void Awake()
     {
@@ -35,7 +48,7 @@ public class SoundtrackArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             Debug.Log("Area entered!");
             PlayerEntered();
@@ -65,11 +78,5 @@ public class SoundtrackArea : MonoBehaviour
         var nextSong = tracks[randomIndex];
         CreativeSoundtrackManager.Instance.PlayTrack(nextSong, PlayNextSong);
         currentTrackId = randomIndex;
-    }
-
-    public void SetAudioFeatures(float energy, float valence)
-    {
-        this.energy = energy;
-        this.valence = valence;
     }
 }

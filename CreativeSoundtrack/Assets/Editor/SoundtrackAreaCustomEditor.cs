@@ -23,6 +23,8 @@ public class SoundtrackAreaCustomEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        Debug.Log(toolbarInt);
+
         //hide Script property
         serializedObject.Update();
         DrawPropertiesExcluding(serializedObject, _dontIncludeMe);
@@ -39,7 +41,7 @@ public class SoundtrackAreaCustomEditor : Editor
         GUILayout.Space(20f);
 
         //Vibe buttons
-        GUILayout.Label("Trocar entre vibes", EditorStyles.boldLabel);
+        GUILayout.Label("Choose area's vibe:", EditorStyles.boldLabel);
         Texture2D[] textures = { battleVibeIcon, romanticVibeIcon, exploringVibeIcon, sadVibeIcon };
         toolbarInt = GUILayout.Toolbar(toolbarInt, textures, GUILayout.Height(ICON_HEIGHT));
         if (toolbarIntAux != toolbarInt)
@@ -49,15 +51,15 @@ public class SoundtrackAreaCustomEditor : Editor
             switch (toolbarInt)
             {
                 case 0:
-                    targetSA.SetAudioFeatures(0, 0);
+                    targetSA.SetAudioFeatures(1, 0.4f);
                     AssignLabel(targetSA.gameObject, battleVibeIcon);
                     break;
                 case 1:
-                    targetSA.SetAudioFeatures(0, 0);
+                    targetSA.SetAudioFeatures(0.8f, 0.8f);
                     AssignLabel(targetSA.gameObject, romanticVibeIcon);
                     break;
                 case 2:
-                    targetSA.SetAudioFeatures(0, 0);
+                    targetSA.SetAudioFeatures(0.5f, 0.3f);
                     AssignLabel(targetSA.gameObject, exploringVibeIcon);
                     break;
                 case 3:
@@ -65,6 +67,7 @@ public class SoundtrackAreaCustomEditor : Editor
                     AssignLabel(targetSA.gameObject, sadVibeIcon);
                     break;
             }
+            targetSA.selectedVibeColor = getVibeColor(toolbarInt);
         }
     }
 
@@ -77,5 +80,27 @@ public class SoundtrackAreaCustomEditor : Editor
         BindingFlags bindingFlags = BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.NonPublic;
         object[] args = new object[] { g, tex };
         editorGUIUtilityType.InvokeMember("SetIconForObject", bindingFlags, null, null, args);
+    }
+
+    private Color getVibeColor(int vibeSelected)
+    {
+        Color vibeColor = Color.red;
+
+        switch (vibeSelected)
+        {
+            case 0: //combat
+                vibeColor = new Color(231f / 255f, 228f / 255f, 90f / 255f, 1);
+                break;
+            case 1: //romance
+                vibeColor = new Color(191f / 255f, 98f / 255f, 98f / 255f, 1);
+                break;
+            case 2: //adventure
+                vibeColor = new Color(99f / 255f, 192f / 255f, 183f / 255f, 1);
+                break;
+            case 3: //sad
+                vibeColor = new Color(50f / 255f, 69f / 255f, 151f / 255f, 1);
+                break;
+        }
+        return vibeColor;
     }
 }
