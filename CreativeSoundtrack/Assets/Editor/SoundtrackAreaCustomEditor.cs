@@ -16,14 +16,13 @@ public class SoundtrackAreaCustomEditor : Editor
 
     const int ICON_HEIGHT = 40;
 
-    int toolbarIntAux = -1;
-    int toolbarInt = 0;
-
     private static readonly string[] _dontIncludeMe = new string[] { "m_Script" };
 
     public override void OnInspectorGUI()
     {
-        Debug.Log(toolbarInt);
+        SoundtrackArea targetSA = (SoundtrackArea)target;
+        int toolbarInt = targetSA.toolbarInt;
+        int toolbarIntAux = targetSA.toolbarIntAux;
 
         //hide Script property
         serializedObject.Update();
@@ -33,7 +32,7 @@ public class SoundtrackAreaCustomEditor : Editor
         //source code links
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Open Source Code"))
-            Application.OpenURL("https://github.com/Danielfib/CreativeSoundtrackUnity/tree/main/CreativeSoundtrack");
+            Application.OpenURL("https://github.com/Danielfib/CreativeSoundtrackUnity");
         if (GUILayout.Button("Open Spotify Dashboard"))
             Application.OpenURL("https://developer.spotify.com/dashboard/");
         GUILayout.EndHorizontal();
@@ -46,7 +45,6 @@ public class SoundtrackAreaCustomEditor : Editor
         toolbarInt = GUILayout.Toolbar(toolbarInt, textures, GUILayout.Height(ICON_HEIGHT));
         if (toolbarIntAux != toolbarInt)
         {
-            SoundtrackArea targetSA = (SoundtrackArea)target;
             toolbarIntAux = toolbarInt;
             switch (toolbarInt)
             {
@@ -68,6 +66,8 @@ public class SoundtrackAreaCustomEditor : Editor
                     break;
             }
             targetSA.selectedVibeColor = getVibeColor(toolbarInt);
+            targetSA.toolbarInt = toolbarInt;
+            targetSA.toolbarIntAux = toolbarIntAux;
         }
     }
 

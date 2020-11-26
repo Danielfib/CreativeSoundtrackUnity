@@ -15,8 +15,11 @@ public class SoundtrackArea : MonoBehaviour
     private float energy,
                   valence;
 
+    #region Editor
     [HideInInspector]
     public Color selectedVibeColor;
+    [HideInInspector]
+    public int toolbarIntAux = -1, toolbarInt = 0;
 
     private void OnDrawGizmos()
     {
@@ -31,6 +34,7 @@ public class SoundtrackArea : MonoBehaviour
         this.energy = energy;
         this.valence = valence;
     }
+    #endregion
 
     private void Awake()
     {
