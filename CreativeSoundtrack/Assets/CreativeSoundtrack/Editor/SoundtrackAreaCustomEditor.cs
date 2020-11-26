@@ -18,16 +18,27 @@ public class SoundtrackAreaCustomEditor : Editor
 
     private static readonly string[] _dontIncludeMe = new string[] { "m_Script" };
 
+    SerializedObject obj;
+    private void OnEnable()
+    {
+        if (target)
+            obj = new SerializedObject(target);
+    }
+
     public override void OnInspectorGUI()
     {
-        SoundtrackArea targetSA = (SoundtrackArea)target;
-        int toolbarInt = targetSA.toolbarInt;
-        int toolbarIntAux = targetSA.toolbarIntAux;
+        SoundtrackArea targetSA = target as SoundtrackArea;
+        SerializedProperty tbIntProp = obj.FindProperty("toolbarInt");
+        SerializedProperty tbIntAuxProp = obj.FindProperty("toolbarIntAux");
+        SerializedProperty colorProp = obj.FindProperty("selectedVibeColor");
+        SerializedProperty energyProp = obj.FindProperty("energy");
+        SerializedProperty valenceProp = obj.FindProperty("valence");
+
+        int toolbarInt = tbIntProp.intValue;
+        int toolbarIntAux = tbIntAuxProp.intValue;
 
         //hide Script property
-        serializedObject.Update();
         DrawPropertiesExcluding(serializedObject, _dontIncludeMe);
-        serializedObject.ApplyModifiedProperties();
 
         //source code links
         GUILayout.BeginHorizontal();
@@ -49,31 +60,36 @@ public class SoundtrackAreaCustomEditor : Editor
             switch (toolbarInt)
             {
                 case 0:
-                    targetSA.SetAudioFeatures(1, 0.4f);
+                    energyProp.floatValue = 1f;
+                    valenceProp.floatValue = 0.4f;
                     AssignLabel(targetSA.gameObject, battleVibeIcon);
                     break;
                 case 1:
-                    targetSA.SetAudioFeatures(0.8f, 0.8f);
+                    energyProp.floatValue = 0.8f;
+                    valenceProp.floatValue = 0.8f;
                     AssignLabel(targetSA.gameObject, romanticVibeIcon);
                     break;
                 case 2:
-                    targetSA.SetAudioFeatures(0.5f, 0.3f);
+                    energyProp.floatValue = 0.5f;
+                    valenceProp.floatValue = 0.3f;
                     AssignLabel(targetSA.gameObject, exploringVibeIcon);
                     break;
                 case 3:
-                    targetSA.SetAudioFeatures(0, 0);
+                    energyProp.floatValue = 0f;
+                    valenceProp.floatValue = 0f;
                     AssignLabel(targetSA.gameObject, sadVibeIcon);
                     break;
             }
-            targetSA.selectedVibeColor = getVibeColor(toolbarInt);
-            targetSA.toolbarInt = toolbarInt;
-            targetSA.toolbarIntAux = toolbarIntAux;
+            tbIntProp.intValue = toolbarInt;
+            tbIntAuxProp.intValue = toolbarIntAux;
+            colorProp.colorValue = getVibeColor(toolbarInt);
+            obj.ApplyModifiedProperties();
         }
     }
 
     public void AssignLabel(GameObject g, Texture2D tex = null)
     {
-        if(tex == null)
+        if (tex == null)
             tex = EditorGUIUtility.IconContent("sv_label_0").image as Texture2D;
 
         Type editorGUIUtilityType = typeof(EditorGUIUtility);

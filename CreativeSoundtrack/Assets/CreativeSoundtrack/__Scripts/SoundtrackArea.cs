@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 public class SoundtrackArea : MonoBehaviour
@@ -11,14 +12,14 @@ public class SoundtrackArea : MonoBehaviour
 
     [HideInInspector]
     public int id;
-    
-    private float energy,
-                  valence;
+
+    [HideInInspector, SerializeField]
+    private float energy, valence;
 
     #region Editor
-    [HideInInspector]
+    [HideInInspector, SerializeField]
     public Color selectedVibeColor;
-    [HideInInspector]
+    [HideInInspector, SerializeField]
     public int toolbarIntAux = -1, toolbarInt = 0;
 
     private void OnDrawGizmos()
@@ -36,8 +37,9 @@ public class SoundtrackArea : MonoBehaviour
     }
     #endregion
 
-    private void Awake()
+    private void Start()
     {
+        //Debug.Log("Start new area!");
         id = gameObject.GetInstanceID();
 
         CreativeSoundtrackManager.Instance.AddInitilizationAction(() =>
@@ -54,7 +56,6 @@ public class SoundtrackArea : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Area entered!");
             PlayerEntered();
         }
     }
@@ -63,6 +64,7 @@ public class SoundtrackArea : MonoBehaviour
     {
         if (CreativeSoundtrackManager.Instance.EnteredNewArea(id))
         {
+            Debug.Log("Playing song with: " + energy + " " + valence);
             CreativeSoundtrackManager.Instance.PlayTrack(tracks[0], PlayNextSong);
         }
     }
@@ -71,9 +73,9 @@ public class SoundtrackArea : MonoBehaviour
     public void PlayNextSong()
     {
         int randomIndex = Mathf.RoundToInt(Random.Range(0, tracks.Count - 1));
-        if(tracks.Count > 1)
+        if (tracks.Count > 1)
         {
-            while(randomIndex == currentTrackId)
+            while (randomIndex == currentTrackId)
             {
                 randomIndex = Mathf.RoundToInt(Random.Range(0, tracks.Count - 1));
             }
