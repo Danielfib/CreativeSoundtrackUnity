@@ -26,7 +26,7 @@ public class SoundtrackArea : MonoBehaviour
         Gizmos.color = selectedVibeColor;
         BoxCollider bc = GetComponent<BoxCollider>();
         Vector3 scaledBounds = Vector3.Scale(bc.size, transform.localScale);
-        Gizmos.DrawWireCube(transform.position, scaledBounds);
+        Gizmos.DrawWireCube(transform.position + bc.center, scaledBounds);
     }
 
     public void SetAudioFeatures(float energy, float valence)
