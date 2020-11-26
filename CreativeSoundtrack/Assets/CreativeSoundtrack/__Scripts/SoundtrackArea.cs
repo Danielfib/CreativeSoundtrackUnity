@@ -1,4 +1,5 @@
 ﻿using Spotify4Unity.Dtos;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -41,15 +42,13 @@ public class SoundtrackArea : MonoBehaviour
     {
         //Debug.Log("Start new area!");
         id = gameObject.GetInstanceID();
-
-        CreativeSoundtrackManager.Instance.AddInitilizationAction(() =>
-        {
+        CreativeSoundtrackManager.Instance.AddInitilizationAction(new Tuple<Vector3, Action>(transform.position, () => {
             new Thread(() =>
             {
-                tracks.AddRange(CreativeSoundtrackManager.Instance.GetBestSongsFor(energy, valence, 5));
+                tracks.AddRange(CreativeSoundtrackManager.Instance.GetBestSongsFor(energy, valence, 7));
                 Debug.Log("InitializedArea");
             }).Start();
-        });
+        }));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,19 +64,20 @@ public class SoundtrackArea : MonoBehaviour
         if (CreativeSoundtrackManager.Instance.EnteredNewArea(id))
         {
             Debug.Log("Playing song with: " + energy + " " + valence);
-            CreativeSoundtrackManager.Instance.PlayTrack(tracks[0], PlayNextSong);
+            var rdmTop3 = UnityEngine.Random.Range(0, Mathf.Min(3, tracks.Count));
+            CreativeSoundtrackManager.Instance.PlayTrack(tracks[rdmTop3], PlayNextSong);
         }
     }
 
     //called when current sont is about to end
     public void PlayNextSong()
     {
-        int randomIndex = Mathf.RoundToInt(Random.Range(0, tracks.Count - 1));
+        int randomIndex = Mathf.RoundToInt(UnityEngine.Random.Range(0, tracks.Count - 1));
         if (tracks.Count > 1)
         {
             while (randomIndex == currentTrackId)
             {
-                randomIndex = Mathf.RoundToInt(Random.Range(0, tracks.Count - 1));
+                randomIndex = Mathf.RoundToInt(UnityEngine.Random.Range(0, tracks.Count - 1));
             }
         }
 

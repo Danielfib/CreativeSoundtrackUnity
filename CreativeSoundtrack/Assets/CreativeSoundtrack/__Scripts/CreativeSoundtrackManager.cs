@@ -20,13 +20,16 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
     [HideInInspector]
     public int currentAreaPlaying = -1;
 
-    List<Action> initializationActions = new List<Action>();
+    List<Tuple<Vector3, Action>> initializationActions = new List<Tuple<Vector3, Action>>();
 
     private const int SONG_ABOUT_TO_END_TOLERANCE = 2000; //milliseconds
+
+    private Vector3 startingPlayerPos = Vector3.zero;
 
     private void Start()
     {
         SavedTokenJSON = PlayerPrefs.GetString("backedUpTokenJSON");
+        startingPlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
         Thread initThread = new Thread(Initialize);
         initThread.Start();
@@ -49,16 +52,28 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
 
         while (m_tracks == null)
         {
-            Thread.Sleep(500);
+            Thread.Sleep(300);
             GetAllUserTracks();
             Debug.Log("Trying to get users song!");
         }
         Debug.Log("Got user songs!");
 
-        foreach(var initializationAction in initializationActions)
+        OrderInitializationsToCloserToPlayer();
+        InvokeInitializationActions();
+    }
+
+    private void InvokeInitializationActions()
+    {
+        foreach (var initializationAction in initializationActions.Select(x => x.Item2))
         {
             initializationAction.Invoke();
+            Thread.Sleep(5000);
         }
+    }
+
+    private void OrderInitializationsToCloserToPlayer()
+    {
+        initializationActions.OrderBy(x => Vector3.Distance(x.Item1, startingPlayerPos));
     }
 
     private IEnumerator StartWatchForSongEnd(Action callback)
@@ -71,7 +86,7 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         callback.Invoke();
     }
 
-    public void AddInitilizationAction(Action a)
+    public void AddInitilizationAction(Tuple<Vector3, Action> a)
     {
         initializationActions.Add(a);
     }
@@ -91,11 +106,7 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         return SortByFeatures(energy, valence).GetRange(0, Mathf.Min(howMany, m_tracks.Count));
     }
 
-    public List<Track> SortByFeatures(//float loudness, 
-                                float energy,
-                                //float instrumentalness, 
-                                //float speechiness, 
-                                float valence)
+    public List<Track> SortByFeatures(float energy, float valence)
     {
         var audioFeatures = new List<SpotifyAPI.Web.Models.AudioFeatures>();
 
@@ -113,12 +124,8 @@ public class CreativeSoundtrackManager : Singleton<CreativeSoundtrackManager>
         foreach (var f in audioFeatures)
         {
             //smaller grades are better (less different from the parameters chosen)
-            float grade = (//Math.Abs(f.Loudness - loudness) +
-                           Math.Abs(f.Energy - energy) +
-                           //Math.Abs(f.Instrumentalness - instrumentalness) +
-                           //Math.Abs(f.Speechiness - speechiness) +
-                           Math.Abs(f.Valence - valence)
-                           );
+            float grade = (Math.Abs(f.Energy - energy) +
+                           Math.Abs(f.Valence - valence));
 
             trackGrades.Add(new Tuple<Track, float>(m_tracks[count], grade));
             trackGrades.Sort((a, b) => a.Item2.CompareTo(b.Item2));
