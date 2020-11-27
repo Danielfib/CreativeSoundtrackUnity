@@ -26,9 +26,11 @@ public class SoundtrackArea : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = selectedVibeColor;
+        Gizmos.matrix = transform.localToWorldMatrix;
+
         BoxCollider bc = GetComponent<BoxCollider>();
-        Vector3 scaledBounds = Vector3.Scale(bc.size, transform.localScale);
-        Gizmos.DrawWireCube(transform.position + bc.center, scaledBounds);
+        if (!bc) return;
+        Gizmos.DrawWireCube(bc.center, bc.size);
     }
 
     public void SetAudioFeatures(float energy, float valence)
